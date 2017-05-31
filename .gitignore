@@ -69,5 +69,4 @@ fabric.properties
 .gitignore
 .idea/
 monitorserver.iml
-src/main/java/com/bpe/monitor/entity/
 target/
