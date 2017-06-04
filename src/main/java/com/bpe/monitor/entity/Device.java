@@ -14,18 +14,11 @@ import javax.validation.constraints.NotNull;
  * Created by polinchw on 5/31/17.
  */
 @Entity
-@Table(name="device")
 public class Device {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
-    public Device(Account account, String name, String description) {
-        this.account = account;
-        this.name = name;
-        this.description = description;
-    }
 
     @OneToOne
     @JoinColumn(name = "account_fk")
@@ -51,6 +44,14 @@ public class Device {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public void setLongitue(float longitue) {
+        this.longitue = longitue;
     }
 
     public Account getAccount() {

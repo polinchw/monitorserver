@@ -1,13 +1,18 @@
 package com.bpe.monitor.entity;
 
-import javax.persistence.*;
-import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.List;
 
 /**
  * Created by polinchw on 6/4/17.
  */
 @Entity
-@Table(name = "account")
 public class Account {
 
     @Id
