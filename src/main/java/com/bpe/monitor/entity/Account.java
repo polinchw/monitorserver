@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -19,15 +20,19 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotNull
     private String firstName;
 
+    @NotNull
     private String lastName;
 
     /**
      * This will also serve as the account id.
      */
+    @NotNull
     private String email;
 
+    @NotNull
     private String password;
 
     @OneToMany
