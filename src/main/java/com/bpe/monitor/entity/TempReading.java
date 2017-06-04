@@ -37,10 +37,6 @@ public class TempReading {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateRecorded;
 
-    public TempReading(Device device) {
-        this.device = device;
-    }
-
     public long getId() {
         return id;
     }
