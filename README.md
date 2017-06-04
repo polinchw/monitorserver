@@ -1,2 +1,2 @@
 # monitorserver
-An application that wiil collect data from sensor information coming from a Rasberri Pi.
+An application that will collect data from sensor information coming from a Raspberry Pi.
