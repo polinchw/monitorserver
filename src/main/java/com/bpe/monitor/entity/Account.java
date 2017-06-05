@@ -1,12 +1,12 @@
 package com.bpe.monitor.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -27,9 +27,10 @@ public class Account {
     private String lastName;
 
     /**
-     * This will also serve as the account id.
+     * This will also serve as the unique account.
      */
     @NotNull
+    @Column(unique = true)
     private String email;
 
     @NotNull
