@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 /**
- * Naviate to http://localhost:8080/swagger-ui.html#
+ * Navigate to http://localhost:8080/swagger-ui.html#
  *
  * Created by polinchw on 6/5/17.
  *
