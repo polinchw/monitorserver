@@ -42,10 +42,6 @@ public class Device {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public void setLat(float lat) {
         this.lat = lat;
     }
@@ -82,16 +78,8 @@ public class Device {
         return lat;
     }
 
-    public void setLat(long lat) {
-        this.lat = lat;
-    }
-
     public float getLongitue() {
         return longitue;
-    }
-
-    public void setLongitue(long longitue) {
-        this.longitue = longitue;
     }
 
     public long getHeightAboveSeaLevel() {
