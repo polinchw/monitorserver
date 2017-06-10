@@ -9,4 +9,6 @@ import org.springframework.data.rest.core.annotation.*;
  */
 @RepositoryRestResource(collectionResourceRel = "account", path = "account")
 public interface AccountRepository extends PagingAndSortingRepository<Account, Long> {
+
+    Account findByLastName(String lastName);
 }
