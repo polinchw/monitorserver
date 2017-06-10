@@ -83,4 +83,22 @@ public class RespositoryTests {
         assertThat(account.getDevices().get(0).getName()).isEqualTo("temp monitor");
     }
 
+    @Test
+    public void testAddDeviceByAccount() throws Exception {
+        Account account = new Account();
+        account.setEmail("polinchw@gmail.com");
+        account.setPassword("password");
+        account.setFirstName("William");
+        account.setLastName("Polinchak");
+        entityManager.persist(account);
+        Device device = new Device();
+        device.setAccount(account);
+        device.setDescription("monitors temperature");
+        device.setName("temp monitor");
+        device.setAccount(account);
+        entityManager.persist(device);
+        account = accountRepository.findByEmail("polinchw@gmail.com");
+        assertThat(account.getDevices().get(0).getName()).isEqualTo("temp monitor");
+    }
+
 }

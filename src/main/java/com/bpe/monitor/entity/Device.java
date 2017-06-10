@@ -18,7 +18,7 @@ public class Device {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "account_fk")
@@ -33,11 +33,14 @@ public class Device {
     @NotNull
     private String description;
 
-    private float lat;
+    @Column
+    private Float lat;
 
-    private float longitue;
+    @Column
+    private Float longitue;
 
-    private long heightAboveSeaLevel;
+    @Column
+    private Float heightAboveSeaLevel;
 
     public void setId(long id) {this.id = id;}
 
@@ -85,11 +88,11 @@ public class Device {
         return longitue;
     }
 
-    public long getHeightAboveSeaLevel() {
+    public Float getHeightAboveSeaLevel() {
         return heightAboveSeaLevel;
     }
 
-    public void setHeightAboveSeaLevel(long heightAboveSeaLevel) {
+    public void setHeightAboveSeaLevel(Float heightAboveSeaLevel) {
         this.heightAboveSeaLevel = heightAboveSeaLevel;
     }
 

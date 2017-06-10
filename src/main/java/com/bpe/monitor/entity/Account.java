@@ -13,7 +13,7 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @NotNull
     private String firstName;
@@ -31,7 +31,7 @@ public class Account {
     @NotNull
     private String password;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name="account_fk")
     private List<Device> devices;
 

@@ -1,13 +1,6 @@
 package com.bpe.monitor.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.*;
 
 /**
@@ -28,12 +21,16 @@ public class AlarmRule {
     @JoinColumn(name="rule_fk")
     List<AlarmReading> alarmReadings;
 
+    @Column
     private AlarmEnum alarmType;
 
+    @Column
     private float low;
 
+    @Column
     private float high;
 
+    @Column
     private String emailToAlert;
 
     public long getId() {
