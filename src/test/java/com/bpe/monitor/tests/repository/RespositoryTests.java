@@ -1,9 +1,10 @@
 package com.bpe.monitor.tests.repository;
 
-import com.bpe.monitor.entity.Account;
-import com.bpe.monitor.entity.rest.repository.AccountRepository;
+import com.bpe.monitor.entity.*;
+import com.bpe.monitor.entity.rest.repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -22,11 +23,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
 public class RespositoryTests {
 
+    private static Logger log = LoggerFactory.getLogger(RespositoryTests.class);
+
     @Autowired
     private TestEntityManager entityManager;
 
     @Autowired
     AccountRepository accountRepository;
+
+    @Autowired
+    DeviceRepository deviceRepository;
 
     @Test
     public void testAccountInsert() throws Exception {
@@ -37,7 +43,44 @@ public class RespositoryTests {
         account.setLastName("Polinchak");
         entityManager.persist(account);
         Account accountFound = this.accountRepository.findByLastName("Polinchak");
+        log.info("account inserted: "+accountFound);
         assertThat(accountFound.getLastName()).isEqualTo("Polinchak");
+    }
+
+    @Test
+    public void testDeviceInsert() throws Exception {
+        Account account = new Account();
+        account.setEmail("polinchw@gmail.com");
+        account.setPassword("password");
+        account.setFirstName("William");
+        account.setLastName("Polinchak");
+        entityManager.persist(account);
+        account = accountRepository.findByEmail("polinchw@gmail.com");
+        Device device = new Device();
+        device.setAccount(account);
+        device.setDescription("monitors temperature");
+        device.setName("temp monitor");
+        entityManager.persist(device);
+        device = deviceRepository.findOne(1l);
+        log.info("device found: "+device);
+        assertThat(device.getName()).isEqualTo("temp monitor");
+    }
+
+    @Test
+    public void testFindDeviceByAccount() throws Exception {
+        Account account = new Account();
+        account.setEmail("polinchw@gmail.com");
+        account.setPassword("password");
+        account.setFirstName("William");
+        account.setLastName("Polinchak");
+        Device device = new Device();
+        device.setAccount(account);
+        device.setDescription("monitors temperature");
+        device.setName("temp monitor");
+        account.getDevices().add(device);
+        entityManager.persist(account);
+        account = accountRepository.findByEmail("polinchw@gmail.com");
+        assertThat(account.getDevices().get(0).getName()).isEqualTo("temp monitor");
     }
 
 }

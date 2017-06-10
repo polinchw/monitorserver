@@ -2,12 +2,13 @@ package com.bpe.monitor.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by polinchw on 6/4/17.
  */
 @Entity
+@Table(indexes = { @Index(name = "IDX_EMAIL", unique = true, columnList = "email") })
 public class Account {
 
     @Id
@@ -71,10 +72,25 @@ public class Account {
     }
 
     public List<Device> getDevices() {
+        if(devices == null) {
+            devices = new ArrayList<Device>();
+        }
         return devices;
     }
 
     public void setDevices(List<Device> devices) {
         this.devices = devices;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", devices=" + devices +
+                '}';
     }
 }

@@ -11,4 +11,6 @@ import org.springframework.data.rest.core.annotation.*;
 public interface AccountRepository extends PagingAndSortingRepository<Account, Long> {
 
     Account findByLastName(String lastName);
+
+    Account findByEmail(String email);
 }

@@ -22,6 +22,7 @@ public class Device {
 
     @OneToOne
     @JoinColumn(name = "account_fk")
+    @NotNull
     private Account account;
 
     @Column(length = 15)
@@ -37,6 +38,8 @@ public class Device {
     private float longitue;
 
     private long heightAboveSeaLevel;
+
+    public void setId(long id) {this.id = id;}
 
     public long getId() {
         return id;
@@ -88,5 +91,18 @@ public class Device {
 
     public void setHeightAboveSeaLevel(long heightAboveSeaLevel) {
         this.heightAboveSeaLevel = heightAboveSeaLevel;
+    }
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "id=" + id +
+                ", account=" + account +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", lat=" + lat +
+                ", longitue=" + longitue +
+                ", heightAboveSeaLevel=" + heightAboveSeaLevel +
+                '}';
     }
 }

@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by polinchw on 6/4/17.
@@ -81,6 +81,9 @@ public class AlarmRule {
     }
 
     public List<AlarmReading> getAlarmReadings() {
+        if(alarmReadings == null) {
+            alarmReadings = new ArrayList<AlarmReading>();
+        }
         return alarmReadings;
     }
 
