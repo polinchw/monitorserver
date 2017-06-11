@@ -70,3 +70,5 @@ fabric.properties
 .idea/
 monitorserver.iml
 target/
+/create.sql
+create.sql
