@@ -98,6 +98,23 @@ public class RespositoryTests {
         device.setAccount(account);
         entityManager.persist(device);
         account = accountRepository.findByEmail("polinchw@gmail.com");
+        log.info("account: "+account);
+    }
+
+    @Test
+    public void testAddDeviceByAccountwithCascade() throws Exception {
+        Account account = new Account();
+        account.setEmail("polinchw@gmail.com");
+        account.setPassword("password");
+        account.setFirstName("William");
+        account.setLastName("Polinchak");
+        Device device = new Device();
+        device.setAccount(account);
+        device.setDescription("monitors temperature");
+        device.setName("temp monitor");
+        account.getDevices().add(device);
+        entityManager.persist(account);
+        account = accountRepository.findByEmail("polinchw@gmail.com");
         assertThat(account.getDevices().get(0).getName()).isEqualTo("temp monitor");
     }
 

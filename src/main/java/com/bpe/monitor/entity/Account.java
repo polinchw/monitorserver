@@ -31,7 +31,7 @@ public class Account {
     @NotNull
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     @JoinColumn(name="account_fk")
     private List<Device> devices;
 
