@@ -1,4 +1,4 @@
-FROM dockerfile/java:oracle-java8
+FROM openjdk:8
 
 VOLUME /tmp
 ADD monitor-server.jar /opt/monitor-server/
