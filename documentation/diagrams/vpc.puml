@@ -1,0 +1,19 @@
+@startuml
+
+package "AWS VPC" {
+ folder "Database Subnet" {
+      [AWS RDS]  --> MySql
+  }
+  folder "App Server Subnet" {
+      [Spring Boot]
+  }
+  folder "Web Server Subnet" {
+     [Angular 2]
+  }
+}
+
+database "MySql" {
+
+}
+
+@enduml
