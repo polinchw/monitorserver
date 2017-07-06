@@ -2,6 +2,10 @@
 An application that will collect data from sensor information coming from a Raspberry Pi.
 ## Network Diagram
 ![alt text](https://github.com/polinchw/monitorserver/blob/master/documentation/diagrams/vpc.png)
+## Build
+run mvn clean install
+## Run
+java -jar -Dspring.profiles.active=dev monitor-server.jar
 ## Swagger
 Navigate to http://localhost:8080/swagger-ui.html# to view rest APIs.
 ## Docker Machine/Swarm Deployment on AWS
