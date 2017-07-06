@@ -19,6 +19,6 @@ Navigate to http://localhost:8080/swagger-ui.html# to view rest APIs.
   
 5. Create a <b>Docker Service</b>.  Run the monitor-frontend app in the Docker Swarm as a Docker Service by running this command <b>on</b> the Docker Machine.
 
-  docker-machine ssh monitorserver-swarm-master 'docker service create -e "SPRING_PROFILES_ACTIVE=aws-dev" -e "JASYPT_ENCRYPTOR_PASSWORD=xxx" --replicas 2 --name monitor-server-spring-boot p 8080:8080 polinchw/monitor-server'
+  docker-machine ssh monitorserver-swarm-master 'docker service create -e "SPRING_PROFILES_ACTIVE=aws-dev" -e "JASYPT_ENCRYPTOR_PASSWORD=xxx" --replicas 2 --name monitor-server -p 8080:8080 polinchw/monitor-server'
 
 6. You probably want to add a AWS load balancer to load balance the monitor-frontend at this point. 
