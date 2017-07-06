@@ -1,5 +1,4 @@
 @startuml
-title Monitor Server Network Diagram
 
 package "AWS VPC" {
   folder "Non-Public Facing" {
