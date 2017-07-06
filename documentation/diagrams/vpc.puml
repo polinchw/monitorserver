@@ -1,8 +1,9 @@
 @startuml
+title Monitor Server Network Diagram
 
 package "AWS VPC" {
   folder "Non-Public Facing" {
-  folder "Database Subnet" {
+    folder "Database Subnet" {
         [AWS RDS]  --> MySql
     }
     folder "App Server Subnet" {
