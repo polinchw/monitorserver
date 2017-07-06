@@ -1,5 +1,6 @@
 @startuml
 
+
 package "AWS VPC" {
   folder "Non-Public Facing" {
     folder "Database Subnet" {
@@ -11,13 +12,21 @@ package "AWS VPC" {
   }
   folder "Public Facing" {
     folder "Web Server Subnet" {
-       [Angular 2]
+
+       [Angular 2] --> [Spring Boot]
     }
   }
 }
 
+cloud {
+  [Rasberry PI]
+}
+
+[Rasberry PI] --> [Angular 2]
+
 database "MySql" {
 
 }
+
 
 @enduml
