@@ -1,5 +1,7 @@
 # monitorserver
 An application that will collect data from sensor information coming from a Raspberry Pi.
+## Network Diagram
+https://github.com/polinchw/monitorserver/blob/master/documentation/diagrams/vpc.png
 ## Swagger
 Navigate to http://localhost:8080/swagger-ui.html# to view rest APIs.
 ## Run in a Docker Swarm
