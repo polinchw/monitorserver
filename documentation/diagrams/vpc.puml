@@ -12,7 +12,6 @@ package "AWS VPC" {
   }
   folder "Public Facing" {
     folder "Web Server Subnet" {
-
        [Angular 2] --> [Spring Boot]
     }
   }
