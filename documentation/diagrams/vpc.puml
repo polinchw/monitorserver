@@ -18,10 +18,10 @@ package "AWS VPC" {
 }
 
 cloud {
-  [Rasberry PI]
+  [Raspberry PI]
 }
 
-[Rasberry PI] --> [Angular 2]
+[Raspberry PI] --> [Angular 2]
 
 database "MySql" {
 
