@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:8u131-jdk
 
 VOLUME /tmp
 ADD monitor-server.jar /opt/monitor-server/

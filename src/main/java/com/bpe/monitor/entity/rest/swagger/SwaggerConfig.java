@@ -34,7 +34,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         ApiInfo apiInfo = new ApiInfo(
-                "Monitor Server REST API",
+                "Monitor Server REST API running on JDK 8 u 131",
                 "Rest API for storing Rasberry PI monitoring data.",
                 "API TOS",
                 "Terms of service",

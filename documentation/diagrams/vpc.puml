@@ -7,7 +7,7 @@ package "AWS VPC" {
         [AWS RDS]  --> MySql
     }
     folder "App Server Subnet" {
-        [Spring Boot]
+        [Spring Boot] --> [AWS RDS]
     }
   }
   folder "Public Facing" {

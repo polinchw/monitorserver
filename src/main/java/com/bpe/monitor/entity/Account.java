@@ -31,6 +31,8 @@ public class Account {
     @NotNull
     private String password;
 
+    private String role;
+
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     @JoinColumn(name="account_fk")
     private List<Device> devices;
@@ -69,6 +71,14 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public List<Device> getDevices() {
