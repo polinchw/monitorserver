@@ -1,4 +1,4 @@
-package com.bpe.monitor.entity.rest.swagger;
+package com.bpe.monitor.config;
 
 
 import org.springframework.context.annotation.Bean;
@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 /**
- * Navigate to http://localhost:8080/swagger-ui.html#
+ * Navigate to http://localhost:8081/swagger-ui.html#
  *
  * Created by polinchw on 6/5/17.
  *
