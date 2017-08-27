@@ -180,4 +180,16 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>Snapshots</name>
+            <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus</id>
+            <name>Releases</name>
+            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
 </project>
