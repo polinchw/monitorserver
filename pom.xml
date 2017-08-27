@@ -9,6 +9,12 @@
 
     <name>Spring Boot Docker Blank Project (from https://github.com/making/spring-boot-docker-blank)</name>
 
+    <scm>
+        <url>https://github.com/polinchw/monitorserver</url>
+        <connection>scm:git:git://github.com/polinchw/monitorserver.git</connection>
+        <developerConnection>scm:git:git@github.com:polinchw/monitorserver.git</developerConnection>
+    </scm>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
