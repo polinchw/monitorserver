@@ -4,7 +4,7 @@
 
     <groupId>com.bpe.monitor</groupId>
     <artifactId>monitor-server</artifactId>
-    <version>1.7.3-SNAPSHOT</version>
+    <version>1.7.3</version>
     <packaging>jar</packaging>
 
     <name>Monitor Server Rest API</name>
@@ -13,7 +13,7 @@
         <url>https://github.com/polinchw/monitorserver</url>
         <connection>scm:git:https://github.com/polinchw/monitorserver.git</connection>
         <developerConnection>scm:git:https://github.com/polinchw/monitorserver.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>monitor-server-1.7.3</tag>
   </scm>
 
     <parent>
