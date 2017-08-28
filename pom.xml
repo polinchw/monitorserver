@@ -204,6 +204,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <dockerInfoDirectory>target/docker</dockerInfoDirectory>
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
                 </configuration>
