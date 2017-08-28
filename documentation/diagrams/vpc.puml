@@ -12,7 +12,7 @@ package "AWS VPC" {
   }
   folder "Public Facing" {
     folder "Web Server Subnet" {
-       [Angular 2] --> [Spring Boot]
+       [Load Balancer] --> [Spring Boot]
     }
   }
 }
@@ -21,7 +21,7 @@ cloud {
   [Raspberry PI]
 }
 
-[Raspberry PI] --> [Angular 2]
+[Raspberry PI] --> [Load Balancer]
 
 database "MySql" {
 
