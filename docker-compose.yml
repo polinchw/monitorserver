@@ -1,17 +1,10 @@
 version: '2'
 services:
-  mysql:
-      image: mysql
-      environment:
-        MYSQL_ROOT_PASSWORD: "password"
-        MYSQL_DATABASE: "monitor"
-      ports:
-        - 3306:3306
-      restart: always
+
   monitor-server:
       build: .
       environment:
-        SPRING_PROFILES_ACTIVE: dev
+        SPRING_PROFILES_ACTIVE: docker-compose
       stdin_open: true
       tty: true
       ports:
