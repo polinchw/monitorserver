@@ -21,4 +21,11 @@ Navigate to http://localhost:8080/swagger-ui.html# to view rest APIs.
 
   docker-machine ssh monitorserver-swarm-master 'docker service create -e "SPRING_PROFILES_ACTIVE=aws-dev" -e "JASYPT_ENCRYPTOR_PASSWORD=xxx" --replicas 2 --name monitor-server -p 8080:8080 polinchw/monitor-server'
 
-6. You probably want to add a AWS load balancer to load balance the monitor-frontend at this point. 
+6. You probably want to add a AWS load balancer to load balance the monitor-frontend at this point.
+
+## Docker Compose
+
+1. To run the app with docker compose with a targeted environment run:
+
+    docker-compose build
+    docker-compose -f docker-compose.yml -f dev-local.yml up
