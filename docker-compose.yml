@@ -1,0 +1,20 @@
+version: '2'
+services:
+  mysql:
+      image: mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: "password"
+        MYSQL_DATABASE: "monitor"
+      ports:
+        - 3306:3306
+      restart: always
+  monitor-server:
+      build: .
+      environment:
+        SPRING_PROFILES_ACTIVE: dev
+      stdin_open: true
+      tty: true
+      ports:
+      - 8080:8080/tcp
+      labels:
+        io.rancher.container.pull_image: always
