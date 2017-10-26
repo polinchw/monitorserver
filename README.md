@@ -28,4 +28,5 @@ Navigate to http://localhost:8080/swagger-ui.html# to view rest APIs.
 1. To run the app with docker compose with a targeted environment run:
 
     docker-compose build
+    
     docker-compose -f docker-compose.yml -f dev-local.yml up
