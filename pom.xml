@@ -101,6 +101,11 @@
             <artifactId>jcabi-manifests</artifactId>
             <version>1.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.cars</groupId>
+            <artifactId>docker-secrets</artifactId>
+            <version>0.2.0</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -113,28 +118,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.2</version>
             </plugin>
-            <!--
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <dockerDirectory>${project.build.directory}/docker</dockerDirectory>
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
-            -->
+
             <!-- Copy Dockerfile -->
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
