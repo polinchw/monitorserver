@@ -22,12 +22,8 @@ public class DockerSecretsConfig {
 
     private static final Logger log = LoggerFactory.getLogger(DockerSecretsConfig.class);
 
-    //File under src/main/resources/config/
-    private final String DEFAULT_SECRETS_FILE = "config/secrets-file";
-
     // This bean will be used in non-local or no profiles
-    @Bean(name = "secrets")
-    @Profile("!test")
+    @Bean("secrets")
     public Map<String, String> secrets() {
         log.info("Loading secrets.");
         try {
@@ -40,23 +36,7 @@ public class DockerSecretsConfig {
 
     }
 
-    // This bean will be used for 'test' profile
-    @Bean(name = "secrets")
-//    @Profile("test")
-    public Map<String, String> localSecrets() {
-        log.info("Loading secrets.");
-        try {
-            URL url = ClassLoader.getSystemResource(DEFAULT_SECRETS_FILE);
-            if (url != null) {
-                return DockerSecrets.loadFromFile(new File(url.getPath()));
-            } else {
-                throw new DockerSecretLoadException("Docker secrets loaded faile: ");
-            }
-        } catch (DockerSecretLoadException e) {
-            log.warn("Secrets Load failed : " + e.getMessage(),e);
-            throw new RuntimeException(e);
-        }
-    }
+
 
 //    @PostConstruct
 //    public void init() {
