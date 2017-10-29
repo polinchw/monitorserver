@@ -4,7 +4,7 @@
 
     <groupId>com.bpe.monitor</groupId>
     <artifactId>monitor-server</artifactId>
-    <version>1.7.30-SNAPSHOT</version>
+    <version>1.7.30</version>
     <packaging>jar</packaging>
 
     <name>Monitor Server Rest API</name>
@@ -198,7 +198,7 @@
                     <dockerInfoDirectory>target/docker</dockerInfoDirectory>
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
-                    <tag>latest</tag>
+
                 </configuration>
             </plugin>
             <plugin>

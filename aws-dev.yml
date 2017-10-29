@@ -2,7 +2,7 @@ version: '2'
 services:
 
   monitor-server:
-      image: polinchw/monitor-server:1.7.26
+      image: polinchw/monitor-server
       environment:
         SPRING_PROFILES_ACTIVE: aws-dev
       stdin_open: true
