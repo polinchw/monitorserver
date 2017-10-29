@@ -28,6 +28,7 @@ public class DockerSecretsConfig {
         log.info("Loading secrets.");
         try {
             Map<String,String> map = DockerSecrets.load();
+            System.setProperty("JASYPT_ENCRYPTOR_PASSWORD",map.get("JASYPT_ENCRYPTOR_PASSWORD"));
             return map;
         } catch (DockerSecretLoadException e) {
             log.warn("Secrets Load failed : " + e.getMessage(),e);
@@ -35,13 +36,5 @@ public class DockerSecretsConfig {
         }
 
     }
-
-
-
-//    @PostConstruct
-//    public void init() {
-//        log.info("JASYPT_ENCRYPTOR_PASSWORD: "+secrets().get("JASYPT_ENCRYPTOR_PASSWORD"));
-//        System.setProperty("JASYPT_ENCRYPTOR_PASSWORD",secrets().get("JASYPT_ENCRYPTOR_PASSWORD"));
-//    }
 
 }
