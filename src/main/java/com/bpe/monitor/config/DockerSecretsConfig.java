@@ -27,8 +27,8 @@ public class DockerSecretsConfig {
         log.info("Loading secrets.");
         try {
             Map<String,String> map = DockerSecrets.load();
-            log.info("Setting JASYPT_ENCRYPTOR_PASSWORD to : "+map.get("JASYPT_ENCRYPTOR_PASSWORD"));
-            System.setProperty("JASYPT_ENCRYPTOR_PASSWORD",map.get("JASYPT_ENCRYPTOR_PASSWORD"));
+            log.info("Setting spring.datasource.password to : "+map.get("JASYPT_ENCRYPTOR_PASSWORD"));
+            System.setProperty("spring.datasource.password",map.get("JASYPT_ENCRYPTOR_PASSWORD"));
             return map;
         } catch (DockerSecretLoadException e) {
             log.warn("Secrets Load failed : " + e.getMessage(),e);
