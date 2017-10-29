@@ -28,7 +28,10 @@ public class DockerSecretsTestConfig {
         try {
             URL url = ClassLoader.getSystemResource(DEFAULT_SECRETS_FILE);
             if (url != null) {
-                return DockerSecrets.loadFromFile(new File(url.getPath()));
+                Map<String,String> map = DockerSecrets.loadFromFile(new File(url.getPath()));
+                log.info("Setting JASYPT_ENCRYPTOR_PASSWORD to : "+map.get("JASYPT_ENCRYPTOR_PASSWORD"));
+                System.setProperty("JASYPT_ENCRYPTOR_PASSWORD",map.get("JASYPT_ENCRYPTOR_PASSWORD"));
+                return map;
             } else {
                 throw new DockerSecretLoadException("Docker secrets loaded fail: ");
             }

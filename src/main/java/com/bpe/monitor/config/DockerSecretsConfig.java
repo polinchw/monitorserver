@@ -22,12 +22,12 @@ public class DockerSecretsConfig {
 
     private static final Logger log = LoggerFactory.getLogger(DockerSecretsConfig.class);
 
-    // This bean will be used in non-local or no profiles
     @Bean("secrets")
     public Map<String, String> secrets() {
         log.info("Loading secrets.");
         try {
             Map<String,String> map = DockerSecrets.load();
+            log.info("Setting JASYPT_ENCRYPTOR_PASSWORD to : "+map.get("JASYPT_ENCRYPTOR_PASSWORD"));
             System.setProperty("JASYPT_ENCRYPTOR_PASSWORD",map.get("JASYPT_ENCRYPTOR_PASSWORD"));
             return map;
         } catch (DockerSecretLoadException e) {
