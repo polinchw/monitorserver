@@ -26,10 +26,10 @@ public class DockerSecretsConfig {
     public Map<String, String> secrets() {
         log.info("Loading secrets.");
         try {
-            Map<String,String> map = DockerSecrets.load();
-            log.info("Setting spring.datasource.password to : "+map.get("JASYPT_ENCRYPTOR_PASSWORD"));
-            System.setProperty("spring.datasource.password",map.get("JASYPT_ENCRYPTOR_PASSWORD"));
-            return map;
+            Map<String,String> secrets = DockerSecrets.load();
+            log.info("Setting DB_PASSWORD to : "+secrets.get("DB_PASSWORD"));
+            System.setProperty("spring.datasource.password",secrets.get("DB_PASSWORD"));
+            return secrets;
         } catch (DockerSecretLoadException e) {
             log.warn("Secrets Load failed : " + e.getMessage(),e);
             throw new RuntimeException(e);
