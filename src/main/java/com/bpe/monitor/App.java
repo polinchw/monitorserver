@@ -19,6 +19,10 @@ public class App {
         SpringApplication.run(App.class, args);
     }
 
+    /**
+     * For this to work you have to put a Docker Secret using DB_PASSWORD as the key.
+     * This only works in a Docker Swarm.
+     */
     private static void loadDockerSecrets() {
         try {
             Map<String,String> secrets = DockerSecrets.load();
