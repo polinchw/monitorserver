@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 /**
- * Navigate to http://localhost:8081/swagger-ui.html#
+ * Navigate to http://localhost:8081/monitor-server/swagger-ui.html#
  *
  * Created by polinchw on 6/5/17.
  *
