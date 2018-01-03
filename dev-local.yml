@@ -2,4 +2,6 @@ version: '2'
 services:
   monitor-server:
       environment:
-        SPRING_PROFILES_ACTIVE: docker-compose
+        SPRING_PROFILES_ACTIVE: rancher
+      ports:
+        - 8081:8080/tcp

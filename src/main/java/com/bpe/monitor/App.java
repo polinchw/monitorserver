@@ -28,7 +28,7 @@ public class App {
             Map<String,String> secrets = DockerSecrets.load();
             log.info("Setting DB_PASSWORD to : "+secrets.get("DB_PASSWORD"));
             System.setProperty("spring.datasource.password",secrets.get("DB_PASSWORD"));
-        } catch (DockerSecretLoadException e) {
+        } catch (Exception e) {
             log.warn(e.getMessage());
         }
     }

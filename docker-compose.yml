@@ -8,6 +8,6 @@ services:
       stdin_open: true
       tty: true
       ports:
-      - 8080:8080/tcp
+      - 8081:8080/tcp
       labels:
         io.rancher.container.pull_image: always
