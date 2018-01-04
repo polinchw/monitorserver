@@ -1,0 +1,47 @@
+version: '2'
+services:
+  phpmyadmin:
+    scale: 1
+    start_on_create: true
+  monitor-server:
+    scale: 1
+    start_on_create: true
+  slb:
+    scale: 1
+    start_on_create: true
+    lb_config:
+      certs: []
+      port_rules:
+      - path: ''
+        priority: 1
+        protocol: http
+        service: phpmyadmin
+        source_port: 80
+        target_port: 80
+      - path: /monitor-server
+        priority: 2
+        protocol: http
+        service: monitor-server
+        source_port: 80
+        target_port: 8080
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 2000
+      port: 42
+      unhealthy_threshold: 3
+      initializing_timeout: 60000
+      interval: 2000
+      reinitializing_timeout: 60000
+  mysql:
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 2000
+      port: 3306
+      unhealthy_threshold: 3
+      interval: 2000
+      strategy: recreate
+  mysql-data:
+    scale: 1
+    start_on_create: true

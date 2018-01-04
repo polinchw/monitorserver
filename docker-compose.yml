@@ -1,13 +1,44 @@
 version: '2'
 services:
-
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_ARBITRARY: '1'
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
   monitor-server:
-      build: .
-      environment:
-        SPRING_PROFILES_ACTIVE: docker-compose
-      stdin_open: true
-      tty: true
-      ports:
-      - 8081:8080/tcp
-      labels:
-        io.rancher.container.pull_image: always
+    image: polinchw/monitor-server:1.7.37
+    environment:
+      spring.datasource.url: jdbc:mysql://mysql:3306/monitor
+      spring.datasource.username: monitor
+      spring.datasource.password: password
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  slb:
+    image: rancher/lb-service-haproxy:v0.7.15
+    ports:
+    - 80:80/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin,agent
+      io.rancher.container.agent_service.drain_provider: 'true'
+      io.rancher.container.create_agent: 'true'
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    stdin_open: true
+    tty: true
+    volumes_from:
+    - mysql-data
+    labels:
+      io.rancher.sidekicks: mysql-data
+  mysql-data:
+    image: busybox
+    volumes:
+    - /var/lib/mysql
+    labels:
+      io.rancher.container.start_once: 'true'
