@@ -5,7 +5,7 @@ services:
     start_on_create: true
   monitor-server:
     scale: 1
-    start_on_create: true
+    start_on_create: false
   slb:
     scale: 1
     start_on_create: true

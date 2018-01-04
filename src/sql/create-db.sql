@@ -194,3 +194,6 @@ ALTER TABLE `temp_reading`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- Insert with password 'password'
+INSERT INTO `account` (`id`, `email`, `first_name`, `last_name`, `password`, `role`) VALUES (NULL, 'polinchw@gmail.com', 'William', 'Polinchak', '$2a$11$scmrfnd19g2y25F6HxYtGeAS/1SF6haboW0rpUwThgSdfy.c8t2YW', 'admin');
